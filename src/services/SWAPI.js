@@ -6,6 +6,13 @@ const getPeople = async () => {
   return data;
 };
 
+const getPersonById = async (id) => {
+  const response = await fetch(`${baseURL}/${id}`);
+  const data = response.json();
+  return data;
+};
+
 export default {
   getPeople,
+  getPersonById,
 };
