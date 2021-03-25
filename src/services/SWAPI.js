@@ -6,8 +6,6 @@ const getPeople = async () => {
   return data;
 };
 
-console.log(getPeople());
-
 export default {
   getPeople,
 };
