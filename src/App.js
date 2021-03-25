@@ -16,14 +16,15 @@ const App = () => {
     if (results.length < 1) {
       dispatch(fetchCharacters());
     }
-    console.log({ results, isLoading, isError });
+    console.log(isError);
   }, []);
+
   return (
     <div className="App">
       <Router>
         <Switch>
           <Route exact path="/">
-            <CharacterList charData={results} />
+            {isLoading ? 'Loading....' : <CharacterList charData={results} />}
           </Route>
           <Route path="/characters/:charId">
             <CharacterDetails />
