@@ -16,6 +16,9 @@ const CharacterList = ({ charData }) => {
           </Link>
         ))}
       </ul>
+      <div style={{ display: 'flex' }}>
+        <button type="button">Prev</button> <button type="button">Next</button>
+      </div>
     </div>
   );
 };
