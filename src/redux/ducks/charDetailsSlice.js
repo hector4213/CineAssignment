@@ -17,7 +17,11 @@ const charDetailsSlice = createSlice({
     char: {},
     isError: false,
   },
-  reducers: {},
+  reducers: {
+    clearCharacter: (state) => {
+      state.char = {};
+    },
+  },
   extraReducers: {
     [getCharById.pending]: (state) => {
       state.isLoading = true;
@@ -30,5 +34,7 @@ const charDetailsSlice = createSlice({
     },
   },
 });
+
+export const { clearCharacter } = charDetailsSlice.actions;
 
 export default charDetailsSlice.reducer;
