@@ -1,9 +1,18 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import CharacterListItem from './CharacterListItem';
 import { getIDFromUrl } from '../helpers/helpers';
+import { goToPage } from '../redux/ducks/characterSlice';
 
-const CharacterList = ({ charData }) => {
+const CharacterList = ({ charData, nextPage, prevPage }) => {
+  const dispatch = useDispatch();
+
+  const handlePageChange = (page) => {
+    if (!page) return;
+    dispatch(goToPage(page));
+  };
+
   return (
     <div>
       <ul>
@@ -17,7 +26,12 @@ const CharacterList = ({ charData }) => {
         ))}
       </ul>
       <div style={{ display: 'flex' }}>
-        <button type="button">Prev</button> <button type="button">Next</button>
+        <button onClick={() => handlePageChange(prevPage)} type="button">
+          Prev
+        </button>{' '}
+        <button onClick={() => handlePageChange(nextPage)} type="button">
+          Next
+        </button>
       </div>
     </div>
   );
@@ -25,6 +39,8 @@ const CharacterList = ({ charData }) => {
 
 CharacterList.propTypes = {
   charData: PropTypes.instanceOf(Array).isRequired,
+  nextPage: PropTypes.string.isRequired,
+  prevPage: PropTypes.string.isRequired,
 };
 
 export default CharacterList;
