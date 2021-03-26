@@ -21,7 +21,7 @@ const CharacterList = ({ charData, nextPage, prevPage }) => {
             key={getIDFromUrl(char.url)}
             to={`characters/${getIDFromUrl(char.url)}`}
           >
-            <CharacterListItem name={char.name} />
+            <CharacterListItem character={char} />
           </Link>
         ))}
       </ul>
