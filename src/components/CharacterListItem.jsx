@@ -1,11 +1,19 @@
 import PropTypes from 'prop-types';
 
-const CharacterListItem = ({ name }) => {
-  return <li>{name}</li>;
+const CharacterListItem = ({ character }) => {
+  const { name, birth_year, height, mass } = character;
+  return (
+    <li>
+      name:{name}
+      BirthYear{birth_year}
+      height{height}
+      mass{mass}
+    </li>
+  );
 };
 
 CharacterListItem.propTypes = {
-  name: PropTypes.string.isRequired,
+  character: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default CharacterListItem;
