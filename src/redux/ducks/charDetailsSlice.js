@@ -31,6 +31,7 @@ const charDetailsSlice = createSlice({
     },
     [getCharById.fulfilled]: (state, { payload }) => {
       state.char = payload;
+      state.isLoading = false;
     },
   },
 });
