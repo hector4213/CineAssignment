@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCharById, clearCharacter } from '../redux/ducks/charDetailsSlice';
+import CharacterCard from './CharacterCard';
 
 const CharacterDetails = () => {
   const { charId } = useParams();
@@ -21,13 +22,7 @@ const CharacterDetails = () => {
     };
   }, []);
 
-  const { name } = char;
-
-  return (
-    <div>
-      {charId} {name}
-    </div>
-  );
+  return <div>{isLoading ? 'Loading....' : <CharacterCard char={char} />}</div>;
 };
 
 export default CharacterDetails;
