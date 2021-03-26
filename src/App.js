@@ -9,7 +9,7 @@ import CharacterDetails from './components/CharacterDetails';
 const App = () => {
   const dispatch = useDispatch();
 
-  const { results, isLoading, isError } = useSelector(
+  const { results, isLoading, isError, next, prev } = useSelector(
     (state) => state.characters,
   );
   useEffect(() => {
@@ -24,7 +24,15 @@ const App = () => {
       <Router>
         <Switch>
           <Route exact path="/">
-            {isLoading ? 'Loading....' : <CharacterList charData={results} />}
+            {isLoading ? (
+              'Loading....'
+            ) : (
+              <CharacterList
+                charData={results}
+                prevPage={prev}
+                nextPage={next}
+              />
+            )}
           </Route>
           <Route path="/characters/:charId">
             <CharacterDetails />
