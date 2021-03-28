@@ -22,69 +22,71 @@ const CharacterCard = ({ char }) => {
   }
 
   return (
-    <div className="min-w-full h-5/6 p-3 flex flex-col shadow-lg rounded-lg ">
-      <h1 className="text-xl text-center p-4">{name}</h1>
+    <div className="p-3 flex flex-col shadow-lg rounded-lg bg-white flex-1">
+      <h1 className="text-xl text-center p-4 md:text-5xl">{name}</h1>
       <div className="md:flex justify-evenly">
-        <p className="font-medium p-1">
-          Height: <span className="font-normal">{height}</span>
+        <p className="font-medium p-1 md:text-xl">
+          Height: <span className="font-normal ">{height}</span>
         </p>
-        <p className="font-medium p-1">
+        <p className="font-medium p-1 md:text-xl">
           Mass: <span className="font-normal">{mass}</span>
         </p>
-        <p className="font-medium p-1">
+        <p className="font-medium p-1 md:text-xl">
           Hair: <span className="font-normal">{hair_color}</span>
         </p>
-        <p className="font-medium p-1">
+        <p className="font-medium p-1 md:text-xl">
           Skin: <span className="font-normal">{skin_color}</span>
         </p>
-        <p className="font-medium p-1">
+        <p className="font-medium p-1 md:text-xl">
           Eye Color: <span className="font-normal">{eye_color}</span>
         </p>
-        <p className="font-medium p-1">
+        <p className="font-medium p-1 md:text-xl">
           YOB: <span className="font-normal">{birth_year}</span>
         </p>
-        <p className="font-medium p-1">
+        <p className="font-medium p-1 md:text-xl">
           Gender: <span className="font-normal">{gender}</span>
         </p>
       </div>
-      <div className="font-medium p-1">
-        Films:{' '}
-        {films.map((film) => (
-          <span className=" text-gray-500">{`${film.title}, `}</span>
-        ))}
-      </div>
-      <div className="font-medium p-1">
-        Homeworld: <span className="font-normal">{homeworld.name}</span>
-      </div>
-      <div className="font-medium p-1">
-        Species:{' '}
-        {species.length < 1 ? (
-          <span className="font-normal p-1">Unknown</span>
-        ) : (
-          species.map((spec) => (
-            <span className="font-normal p-1">{spec.name}</span>
-          ))
-        )}
-      </div>
-      <div className="font-medium p-1">
-        Starships:{' '}
-        {starships.length < 1 ? (
-          <span className="font-normal">None</span>
-        ) : (
-          starships.map((ship) => (
-            <span className="font-normal p-1">{`${ship.name}, `}</span>
-          ))
-        )}
-      </div>
-      <div className="font-medium p-1">
-        Vehicles :{' '}
-        {vehicles.length < 1 ? (
-          <span className="font-normal p-1">None</span>
-        ) : (
-          vehicles.map((veh) => (
-            <span className="font-normal p-1">{`${veh.name}, `}</span>
-          ))
-        )}
+      <div className="md:flex flex-col flex-1 justify-around ">
+        <div className="font-medium p-1 md:text-xl">
+          Films:{' '}
+          {films.map((film) => (
+            <span className=" text-gray-500">{`${film.title}, `}</span>
+          ))}
+        </div>
+        <div className="font-medium p-1 md:text-xl">
+          Homeworld: <span className="font-normal">{homeworld.name}</span>
+        </div>
+        <div className="font-medium p-1 md:text-xl">
+          Species:{' '}
+          {species.length < 1 ? (
+            <span className="font-normal p-1 md:text-xl">Unknown</span>
+          ) : (
+            species.map((spec) => (
+              <span className="font-normal p-1 md:text-xl">{spec.name}</span>
+            ))
+          )}
+        </div>
+        <div className="font-medium p-1 md:text-xl">
+          Starships:{' '}
+          {starships.length < 1 ? (
+            <span className="font-normal">None</span>
+          ) : (
+            starships.map((ship) => (
+              <span className="font-normal p-1 md:text-xl">{`${ship.name}, `}</span>
+            ))
+          )}
+        </div>
+        <div className="font-medium p-1 md:text-xl">
+          Vehicles :{' '}
+          {vehicles.length < 1 ? (
+            <span className="font-normal p-1 md:text-xl">None</span>
+          ) : (
+            vehicles.map((veh) => (
+              <span className="font-normal p-1 md:text-xl">{`${veh.name}, `}</span>
+            ))
+          )}
+        </div>
       </div>
     </div>
   );
