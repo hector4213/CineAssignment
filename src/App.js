@@ -19,9 +19,9 @@ const App = () => {
   }, []);
 
   return (
-    <main className="min-h-screen flex justify-center items-center bg-gray-200">
+    <main className="min-h-screen w-full flex justify-center items-center bg-gray-200">
       <Router>
-        <section className="">
+        <section className="flex-1 max-h-screen">
           <Switch>
             <Route exact path="/">
               {isLoading ? (
