@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchCharacters } from './redux/ducks/characterSlice';
 import CharacterList from './components/CharacterList';
 import CharacterDetails from './components/CharacterDetails';
+import Loader from './components/Loader';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const App = () => {
           <Switch>
             <Route exact path="/">
               {isLoading ? (
-                'Loading....'
+                <Loader />
               ) : (
                 <CharacterList
                   charData={results}
