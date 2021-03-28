@@ -9,15 +9,12 @@ const CharacterDetails = () => {
   const { charId } = useParams();
   const history = useHistory();
   const dispatch = useDispatch();
-  const { isLoading, char, isError } = useSelector(
-    (state) => state.characterDetails,
-  );
+  const { isLoading, char } = useSelector((state) => state.characterDetails);
 
   useEffect(() => {
     if (Object.keys(char).length === 0) {
       dispatch(getCharById(charId));
     }
-    console.log(isLoading, isError);
 
     return () => {
       dispatch(clearCharacter());

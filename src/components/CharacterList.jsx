@@ -30,18 +30,20 @@ const CharacterList = ({ charData, nextPage, prevPage }) => {
           </Link>
         ))}
       </ul>
-      <div className="flex justify-between">
+      <div className="flex justify-between space-x-2">
         <button
-          className="py-2 px-4  bg-gray-900 hover:bg-gray-600 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg"
+          className="py-2 px-4 bg-gray-900 hover:bg-gray-600 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg disabled:opacity-50"
           onClick={() => handlePageChange(prevPage)}
           type="button"
+          disabled={!prevPage && true}
         >
           Prev
         </button>{' '}
         <button
-          className="py-2 px-4  bg-gray-900 hover:bg-gray-600 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg"
+          className="py-2 px-4 bg-gray-900 hover:bg-gray-600 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg disabled:opacity-50"
           onClick={() => handlePageChange(nextPage)}
           type="button"
+          disabled={!nextPage && true}
         >
           Next
         </button>

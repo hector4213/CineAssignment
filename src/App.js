@@ -22,7 +22,7 @@ const App = () => {
   return (
     <main className="min-h-screen w-full flex justify-center items-center bg-gray-200">
       <Router>
-        <section className="flex-1 max-h-screen">
+        <section className="flex-1">
           <Switch>
             <Route exact path="/">
               {isLoading ? (
