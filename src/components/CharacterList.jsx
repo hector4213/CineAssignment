@@ -14,7 +14,7 @@ const CharacterList = ({ charData, nextPage, prevPage }) => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-between">
+    <div className="min-h-screen flex flex-col justify-between p-2">
       <div className="px-4 py-5 sm:px-6 w-full bg-gray-900 mb-2 rounded-lg shadow">
         <h3 className="text-lg leading-6 font-medium text-white border-gray-400 mb-2">
           Select a Character to view details
