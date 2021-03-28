@@ -1,5 +1,20 @@
 const baseURL = 'https://swapi.dev/api/people';
 
+// This gets used during primary character fetching API call
+const getHomeWorld = async (url) => {
+  const response = await fetch(url);
+  const homeWorldData = response.json();
+  return homeWorldData;
+};
+
+// Function to fetch the nested data in the original character response
+const getMultiProps = async (urlArray) => {
+  const promiseUrls = urlArray.map((url) => fetch(url));
+  const promiseArray = await Promise.all(promiseUrls);
+  const resData = await Promise.all(promiseArray.map((res) => res.json()));
+  return resData;
+};
+
 const getPeople = async () => {
   const response = await fetch(baseURL);
   const data = await response.json();
@@ -10,42 +25,25 @@ const getPersonById = async (id) => {
   const response = await fetch(`${baseURL}/${id}`);
   const data = await response.json();
 
-  // Fetches Homeworld
-  const charHomeWorld = await fetch(data.homeworld);
-  const homeWorld = await charHomeWorld.json();
-  // Fetches Films
-  const fetchFilms = data.films.map((filmUrl) => fetch(filmUrl));
-  const filmPromises = await Promise.all(fetchFilms);
-  const filmData = await Promise.all(filmPromises.map((res) => res.json()));
+  const { homeworld, films, species, vehicles, starships } = data;
+
+  // Fetch Homeworld
+
+  const homeWorld = await getHomeWorld(homeworld);
+
+  // Fetch Films
+  const filmData = await getMultiProps(films);
 
   // Fetch species
-
-  const fetchSpecies = data.species.map((url) => fetch(url));
-  const speciesPromises = await Promise.all(fetchSpecies);
-  const speciesData = await Promise.all(
-    speciesPromises.map((res) => res.json()),
-  );
+  const speciesData = await getMultiProps(species);
 
   // Fetch Vehicles
-  const fetchVehicles = data.vehicles.map((url) => fetch(url));
-  const vehiclePromises = await Promise.all(fetchVehicles);
-  const vehicleData = await Promise.all(
-    vehiclePromises.map((res) => res.json()),
-  );
+  const vehicleData = await getMultiProps(vehicles);
 
   // Fetch Starships
+  const starshipData = await getMultiProps(starships);
 
-  const fetchStarships = data.starships.map((url) => fetch(url));
-  const starshipPromises = await Promise.all(fetchStarships);
-  const starshipData = await Promise.all(
-    starshipPromises.map((res) => res.json()),
-  );
-
-  console.log(speciesData, filmData, vehicleData, starshipData);
-
-  console.log(homeWorld);
-
-  const test = {
+  const completeData = {
     ...data,
     homeworld: homeWorld,
     species: speciesData,
@@ -54,7 +52,7 @@ const getPersonById = async (id) => {
     films: filmData,
   };
 
-  return test;
+  return completeData;
 };
 
 const goToPage = async (prevOrNext) => {
