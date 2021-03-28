@@ -9,37 +9,38 @@ import CharacterDetails from './components/CharacterDetails';
 const App = () => {
   const dispatch = useDispatch();
 
-  const { results, isLoading, isError, next, prev } = useSelector(
+  const { results, isLoading, next, prev } = useSelector(
     (state) => state.characters,
   );
   useEffect(() => {
     if (results.length < 1) {
       dispatch(fetchCharacters());
     }
-    console.log(isError);
   }, []);
 
   return (
-    <div className="App">
+    <main className="min-h-screen flex justify-center items-center bg-gray-200">
       <Router>
-        <Switch>
-          <Route exact path="/">
-            {isLoading ? (
-              'Loading....'
-            ) : (
-              <CharacterList
-                charData={results}
-                prevPage={prev}
-                nextPage={next}
-              />
-            )}
-          </Route>
-          <Route path="/characters/:charId">
-            <CharacterDetails />
-          </Route>
-        </Switch>
+        <section className="">
+          <Switch>
+            <Route exact path="/">
+              {isLoading ? (
+                'Loading....'
+              ) : (
+                <CharacterList
+                  charData={results}
+                  prevPage={prev}
+                  nextPage={next}
+                />
+              )}
+            </Route>
+            <Route path="/characters/:charId">
+              <CharacterDetails />
+            </Route>
+          </Switch>
+        </section>
       </Router>
-    </div>
+    </main>
   );
 };
 
