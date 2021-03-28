@@ -47,17 +47,17 @@ const CharacterCard = ({ char }) => {
           Gender: <span className="font-normal">{gender}</span>
         </p>
       </div>
-      <div className="md:flex flex-col flex-1 justify-around ">
-        <div className="font-medium p-1 md:text-xl">
+      <div className="md:flex flex-col flex-1 justify-evenly ">
+        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium p-1 md:text-xl">
           Films:{' '}
           {films.map((film) => (
-            <span className=" text-gray-500">{`${film.title}, `}</span>
+            <span className="font-normal text-white-500">{`${film.title}, `}</span>
           ))}
         </div>
-        <div className="font-medium p-1 md:text-xl">
+        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium p-1 md:text-xl">
           Homeworld: <span className="font-normal">{homeworld.name}</span>
         </div>
-        <div className="font-medium p-1 md:text-xl">
+        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium p-1 md:text-xl">
           Species:{' '}
           {species.length < 1 ? (
             <span className="font-normal p-1 md:text-xl">Unknown</span>
@@ -67,7 +67,7 @@ const CharacterCard = ({ char }) => {
             ))
           )}
         </div>
-        <div className="font-medium p-1 md:text-xl">
+        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium p-1 md:text-xl">
           Starships:{' '}
           {starships.length < 1 ? (
             <span className="font-normal">None</span>
@@ -77,7 +77,7 @@ const CharacterCard = ({ char }) => {
             ))
           )}
         </div>
-        <div className="font-medium p-1 md:text-xl">
+        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium p-1 md:text-xl">
           Vehicles :{' '}
           {vehicles.length < 1 ? (
             <span className="font-normal p-1 md:text-xl">None</span>
