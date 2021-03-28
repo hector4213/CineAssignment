@@ -31,10 +31,18 @@ const CharacterList = ({ charData, nextPage, prevPage }) => {
         ))}
       </ul>
       <div className="flex justify-between">
-        <button onClick={() => handlePageChange(prevPage)} type="button">
+        <button
+          className="py-2 px-4  bg-gray-900 hover:bg-gray-600 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg"
+          onClick={() => handlePageChange(prevPage)}
+          type="button"
+        >
           Prev
         </button>{' '}
-        <button onClick={() => handlePageChange(nextPage)} type="button">
+        <button
+          className="py-2 px-4  bg-gray-900 hover:bg-gray-600 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg"
+          onClick={() => handlePageChange(nextPage)}
+          type="button"
+        >
           Next
         </button>
       </div>
