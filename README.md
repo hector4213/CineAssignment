@@ -32,6 +32,13 @@ Usually when fetching from a paginated API, parameters are passed to get a speci
 
 TailwindCSS is a utility first CSS framework. If you you are familiar with your css properties, then you can use TailwindCSS just fine. It makes prototyping and getting an MVP looking decent in a short amount of time. This was a personal choice as I enjoy the use of tailwind and its css classes. One thing I would have done in regards to Tailwind styling is to use the @apply directive to clean up the components.
 
+### Installation
+
+$ git clone https://github.com/hector4213/CineAssignment.git
+$ cd CineAssignment
+$ npm install
+$ npm start
+
 ## Technologies used
 
 [<img src='https://img.icons8.com/color/344/javascript.png' height='100'>]() [<img src='https://cdn.iconscout.com/icon/free/png-256/react-3-1175109.png' height='100'>]() [<img src='https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/386/square_256/redux.png' height='100'>]() [<img src='https://cdn-media-1.freecodecamp.org/images/1*TKvlTeNqtkp1s-eVB5Hrvg@2x.png' height='100'>]() [<img src='https://refactoringui.nyc3.cdn.digitaloceanspaces.com/tailwind-logo.svg' height='100'>]()
