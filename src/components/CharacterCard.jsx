@@ -48,16 +48,16 @@ const CharacterCard = ({ char }) => {
         </p>
       </div>
       <div className="md:flex flex-col flex-1 justify-evenly">
-        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium p-1 md:text-xl md:p-10">
+        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium md:text-xl md:p-10">
           Films:{' '}
           {films.map((film) => (
             <span className="font-normal text-white-500">{`${film.title}, `}</span>
           ))}
         </div>
-        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium p-1 md:text-xl md:p-10">
+        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium md:text-xl md:p-10">
           Homeworld: <span className="font-normal">{homeworld.name}</span>
         </div>
-        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium p-1 md:text-xl md:p-10">
+        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium md:text-xl md:p-10">
           Species:{' '}
           {species.length < 1 ? (
             <span className="font-normal p-1 md:text-xl md:p-4">Unknown</span>
@@ -69,7 +69,7 @@ const CharacterCard = ({ char }) => {
             ))
           )}
         </div>
-        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium p-1 md:text-xl md:p-10">
+        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium md:text-xl md:p-10">
           Starships:{' '}
           {starships.length < 1 ? (
             <span className="font-normal">None</span>
@@ -79,7 +79,7 @@ const CharacterCard = ({ char }) => {
             ))
           )}
         </div>
-        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium p-1 md:text-xl md:p-10">
+        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium md:text-xl md:p-10">
           Vehicles :{' '}
           {vehicles.length < 1 ? (
             <span className="font-normal p-1 md:text-xl">None</span>
