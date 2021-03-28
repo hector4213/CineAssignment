@@ -24,7 +24,7 @@ const CharacterCard = ({ char }) => {
   return (
     <div className="p-3 flex flex-col shadow-lg rounded-lg bg-white flex-1">
       <h1 className="text-xl text-center p-4 md:text-5xl">{name}</h1>
-      <div className="flex flex-col flex-1 justify-around md:flex md:flex-row md:justify-evenly md:flex-none">
+      <div className="bg-gray-500 shadow-lg text-white  rounded-2xl mb-1 p-10 flex flex-col flex-1 justify-around md:flex md:flex-row md:justify-evenly md:flex-none md:p-24">
         <p className="font-medium p-1 md:text-xl">
           Height: <span className="font-normal ">{height}</span>
         </p>
@@ -47,27 +47,29 @@ const CharacterCard = ({ char }) => {
           Gender: <span className="font-normal">{gender}</span>
         </p>
       </div>
-      <div className="md:flex flex-col flex-1 justify-evenly ">
-        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium p-1 md:text-xl">
+      <div className="md:flex flex-col flex-1 justify-evenly">
+        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium p-1 md:text-xl md:p-10">
           Films:{' '}
           {films.map((film) => (
             <span className="font-normal text-white-500">{`${film.title}, `}</span>
           ))}
         </div>
-        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium p-1 md:text-xl">
+        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium p-1 md:text-xl md:p-10">
           Homeworld: <span className="font-normal">{homeworld.name}</span>
         </div>
-        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium p-1 md:text-xl">
+        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium p-1 md:text-xl md:p-10">
           Species:{' '}
           {species.length < 1 ? (
-            <span className="font-normal p-1 md:text-xl">Unknown</span>
+            <span className="font-normal p-1 md:text-xl md:p-4">Unknown</span>
           ) : (
             species.map((spec) => (
-              <span className="font-normal p-1 md:text-xl">{spec.name}</span>
+              <span className="font-normal p-1 md:text-xl md:p-4">
+                {spec.name}
+              </span>
             ))
           )}
         </div>
-        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium p-1 md:text-xl">
+        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium p-1 md:text-xl md:p-10">
           Starships:{' '}
           {starships.length < 1 ? (
             <span className="font-normal">None</span>
@@ -77,7 +79,7 @@ const CharacterCard = ({ char }) => {
             ))
           )}
         </div>
-        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium p-1 md:text-xl">
+        <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium p-1 md:text-xl md:p-10">
           Vehicles :{' '}
           {vehicles.length < 1 ? (
             <span className="font-normal p-1 md:text-xl">None</span>
