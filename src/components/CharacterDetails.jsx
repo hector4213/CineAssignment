@@ -24,7 +24,7 @@ const CharacterDetails = () => {
   }, []);
 
   return (
-    <div className="">
+    <div className="min-h-screen p-3 flex flex-col">
       {isLoading ? 'Loading....' : <CharacterCard char={char} />}
       <div>
         <button

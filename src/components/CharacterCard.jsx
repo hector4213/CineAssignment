@@ -24,7 +24,7 @@ const CharacterCard = ({ char }) => {
   return (
     <div className="p-3 flex flex-col shadow-lg rounded-lg bg-white flex-1">
       <h1 className="text-xl text-center p-4 md:text-5xl">{name}</h1>
-      <div className="md:flex justify-evenly">
+      <div className="flex flex-col flex-1 justify-around md:flex md:flex-row md:justify-evenly md:flex-none">
         <p className="font-medium p-1 md:text-xl">
           Height: <span className="font-normal ">{height}</span>
         </p>
