@@ -3,6 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCharById, clearCharacter } from '../redux/ducks/charDetailsSlice';
 import CharacterCard from './CharacterCard';
+import Loader from './Loader';
 
 const CharacterDetails = () => {
   const { charId } = useParams();
@@ -25,7 +26,7 @@ const CharacterDetails = () => {
 
   return (
     <div className="min-h-screen p-3 flex flex-col">
-      {isLoading ? 'Loading....' : <CharacterCard char={char} />}
+      {isLoading ? <Loader /> : <CharacterCard char={char} />}
       <div>
         <button
           className="py-2 px-4  bg-gray-900 hover:bg-gray-600 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg"
