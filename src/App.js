@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchCharacters } from './redux/ducks/characterSlice';
 import CharacterList from './components/CharacterList';
 import CharacterDetails from './components/CharacterDetails';
+import VideoPage from './components/VideoPage';
 import Loader from './components/Loader';
 
 const App = () => {
@@ -25,6 +26,9 @@ const App = () => {
         <section className="flex-1">
           <Switch>
             <Route exact path="/">
+              <VideoPage />
+            </Route>
+            <Route exact path="/characters">
               {isLoading ? (
                 <Loader />
               ) : (
