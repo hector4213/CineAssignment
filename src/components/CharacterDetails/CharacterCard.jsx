@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { getIDFromUrl } from '../../helpers/helpers';
 
 const CharacterCard = ({ char }) => {
   const {
@@ -51,7 +52,10 @@ const CharacterCard = ({ char }) => {
         <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium md:text-xl md:p-10">
           Films:{' '}
           {films.map((film) => (
-            <span className="font-normal text-white-500">{`${film.title}, `}</span>
+            <span
+              key={getIDFromUrl(film.url)}
+              className="font-normal text-white-500"
+            >{`${film.title}, `}</span>
           ))}
         </div>
         <div className="bg-gray-900 shadow-lg text-white  rounded-2xl mb-1 p-4 font-medium md:text-xl md:p-10">
@@ -63,7 +67,10 @@ const CharacterCard = ({ char }) => {
             <span className="font-normal p-1 md:text-xl md:p-4">Unknown</span>
           ) : (
             species.map((spec) => (
-              <span className="font-normal p-1 md:text-xl md:p-4">
+              <span
+                key={getIDFromUrl(spec.url)}
+                className="font-normal p-1 md:text-xl md:p-4"
+              >
                 {spec.name}
               </span>
             ))
