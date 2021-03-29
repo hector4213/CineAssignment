@@ -1,6 +1,6 @@
 # Cine Take-home
 
-An assignment using the [SWAPI API](https://swapi.dev). The task consisted of fetching data from an public API of Starwars Data,
+An assignment using the [SWAPI API](https://swapi.dev). The task consisted of fetching data from an public API of Starwars Data.
 
 ## Screenshots
 
@@ -8,19 +8,32 @@ An assignment using the [SWAPI API](https://swapi.dev). The task consisted of fe
 | :----------------------: | :---------------------: |
 | ![](/readme/desktop.gif) | ![](/readme/mobile.gif) |
 
-## First Problem
+## Installation
 
-Objects returned from API responses do not have unique identifiers. This poses a problem due to the fact that React requires an unique id as a key attribute when mapping components to assist in its re-rendering efficacy during its reconciliation phase. Also, without an unique ID it makes it quite difficult to fetch a single resource from a response of a collection. They way I solved this was identifying the unique identifier dwells in the key of "url" from the response of a resource (or resources if fetching a collection). I leveraged a regex helper function to extract the number as a key, It is also solved my issue of routing to individual characters. With this function and the help of React-Routers useParams hook, I am able to render a single character on its own individual page.
+```sh
+$ git clone https://github.com/hector4213/CineAssignment.git
+$ cd CineAssignment
+$ npm install
+$ npm start
+```
 
-## Second Problem
+## Problems
 
-Another issue was incomplete data. Sub-collections were incomplete and replaced by a link to the resource. The reason I say it's incomplete is because ideally, this should be relational data (one to many). The first solution I thought of was to create another react component that when initially loaded, fetches and renders that link passed from its parent component, Instead I chose to use Promise.all, mapping each url to fetch and passing the array of promises to Promise.all and resolving them. Then I made use of the ES6 spread operator to replace the properties where links were provided with the newly fetched array data. This way, the user can see all the data, in one page.
+Objects returned from API responses do not have unique identifiers. This poses a problem due to the fact that React requires an unique id as a key attribute when mapping components to assist in its re-rendering efficacy during its reconciliation phase. Also, without an unique ID it makes it quite difficult to fetch a single resource from a response of a collection.
+
+Another issue was incomplete data. Sub-collections were incomplete and replaced by a link to the resource. The reason I say it's incomplete is because ideally, this should be relational data (one to many).
+
+## Solutions
+
+They way I solved the id issue was identifying the unique identifier dwells in the key of "url" from the response of a resource (or resources if fetching a collection). I leveraged a regex helper function to extract the number as a key, It is also solved my issue of routing to individual characters. With this function and the help of React-Routers useParams hook, I am able to render a single character on its own individual page.
+
+In regards to the incomplete responses. The first solution I thought of was to create another react component that when initially loaded, fetches and renders that link passed from its parent component, Instead I chose to use Promise.all, mapping each url to fetch and passing the array of promises to Promise.all and resolving them. Then I made use of the ES6 spread operator to replace the properties where links were provided with the newly fetched array data. This way, the user can see all the data, in one page.
 
 ## Technical Decisions
 
 ### Architecture
 
-Typically React components are either presentational or container components, with redux, state is global and allows access to values in any component. The main goal was to produce a list. The list data is the essence of the app, not list data = no app. So its placed in the App component and data flows down into child components.
+Typically React components are either presentational or container components, with redux, state is global and allows access to values in any component. The main goal was to produce a list. The list data is the essence of the app, no list data = no app. So its placed in the App component and data flows down into child components. The character page is similar where the component holds the individual character data which flows down into child components. One way data flow keeps things modular.
 
 ### State Management
 
@@ -40,11 +53,11 @@ Usually when fetching from a paginated API, parameters are passed to get a speci
 
 ### Styling
 
-TailwindCSS is a utility first CSS framework. If you you are familiar with your CSS properties, then you can use TailwindCSS just fine. It makes prototyping and getting an MVP looking polished in a short amount of time. This was a personal choice as I enjoy the use of tailwind and its CSS utility classes. One thing I would have done in regards to Tailwind styling is to use the @apply directive to clean up the components.
+TailwindCSS is a utility first CSS framework. If you you are familiar with your CSS properties, then you can use TailwindCSS just fine. It makes prototyping and getting an MVP looking polished in a short amount of time. This was a personal choice as I enjoy the use of tailwind and its CSS utility classes.
 
 ## Reflections / Looking back
 
-Looking back, I was focused on getting this project done as fast as I could, but sometimes life gets in the way and my time is limited. With this in mind, I read the documentation for the api, and was searching for a parameter for pagination in the docs. So i went ahead and used the next and prev properties of the response to pagination, because hey, its right there so why not use it. Ideally I should have used the url parameter instead with the fetch call.
+Looking back, I was focused on getting this project done as fast as I could, but sometimes life gets in the way and my time is limited. With this in mind, I read the documentation for the api, and was searching for a parameter for pagination in the docs. So i went ahead and used the next and prev properties of the response to pagination, because hey, its right there so why not use it. Ideally I should have used the url parameter instead with the fetch call. In addition, I could refactor the CharacterCard to smaller components for easier readability.
 
 ## Testing
 
@@ -60,6 +73,7 @@ Incorporating testing would have been great. Testing provides confidence in your
 - Tool tips for other properties ex. (show more planet details on hover)
 - More icons!
 - Error feedback for user (show an error message if API cannot fetch) _Attempting to fetch /person/17_
+- Use @apply directive to clean up tailwindcss utility classes
 
 ## Technologies used
 
