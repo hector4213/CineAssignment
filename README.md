@@ -1,12 +1,12 @@
 # Cine Take-home
 
-An assignment using the [SWAPI API](https://swapi.dev)
+An assignment using the [SWAPI API](https://swapi.dev). The task consisted of fetching data from an public API of Starwars Data,
 
 ## Screenshots
 
-Desktop View               |  Mobile View
-:-------------------------:|:-------------------------:
-![](/readme/desktop.gif)  |  ![](/readme/mobile.gif)
+|       Desktop View       |       Mobile View       |
+| :----------------------: | :---------------------: |
+| ![](/readme/desktop.gif) | ![](/readme/mobile.gif) |
 
 ## First Problem
 
@@ -44,7 +44,7 @@ TailwindCSS is a utility first CSS framework. If you you are familiar with your 
 
 ## Reflections / Looking back
 
-Looking back, I was focused on getting this project done as fast as I could, but sometimes life gets in the way and my time is limited. With this in mind, I read the documentation for the api, and was searching for a parameter for pagination in the docs. So i went ahead and used the next and prev properties of the response to pagination, because hey, its right there so why not use it. Ideally I should have used the url parameter instead with the fetch call. 
+Looking back, I was focused on getting this project done as fast as I could, but sometimes life gets in the way and my time is limited. With this in mind, I read the documentation for the api, and was searching for a parameter for pagination in the docs. So i went ahead and used the next and prev properties of the response to pagination, because hey, its right there so why not use it. Ideally I should have used the url parameter instead with the fetch call.
 
 ## Testing
 
@@ -52,14 +52,14 @@ Incorporating testing would have been great. Testing provides confidence in your
 
 ### Features
 
-#### Features that I would of done 
+#### Features that I would of done
+
 - Incorporate list filtering / sorting by property type.
 - On the character page, you can go to the next character, either back or forward.
 - Loader on page change (we are fetching data again so user should have some indication that its loading)
 - Tool tips for other properties ex. (show more planet details on hover)
 - More icons!
 - Error feedback for user (show an error message if API cannot fetch) _Attempting to fetch /person/17_
-
 
 ## Technologies used
 
