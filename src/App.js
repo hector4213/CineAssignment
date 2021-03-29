@@ -3,10 +3,10 @@ import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCharacters } from './redux/ducks/characterSlice';
-import CharacterList from './components/CharacterList';
+import CharacterListPage from './components/CharacterListPage';
 import CharacterDetails from './components/CharacterDetails';
 import VideoPage from './components/VideoPage';
-import Loader from './components/Loader';
+import Loader from './components/shared/Loader';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ const App = () => {
               {isLoading ? (
                 <Loader />
               ) : (
-                <CharacterList
+                <CharacterListPage
                   charData={results}
                   prevPage={prev}
                   nextPage={next}

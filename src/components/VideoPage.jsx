@@ -1,5 +1,5 @@
 import { useHistory } from 'react-router-dom';
-import Video from './Video';
+import Video from './VideoPage/Video';
 
 const VideoPage = () => {
   const history = useHistory();

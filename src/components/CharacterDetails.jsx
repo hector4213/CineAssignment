@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCharById, clearCharacter } from '../redux/ducks/charDetailsSlice';
-import CharacterCard from './CharacterCard';
-import Loader from './Loader';
+import CharacterCard from './CharacterDetails/CharacterCard';
+import Loader from './shared/Loader';
 
 const CharacterDetails = () => {
   const { charId } = useParams();

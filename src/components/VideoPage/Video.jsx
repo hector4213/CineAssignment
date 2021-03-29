@@ -1,7 +1,7 @@
 import React from 'react';
 import { ReactVideo } from 'reactjs-media';
-import Intro from '../assets/intro.mp4';
-import Poster from '../assets/poster.jpg';
+import Intro from '../../assets/intro.mp4';
+import Poster from '../../assets/poster.jpg';
 
 const Video = () => {
   return (

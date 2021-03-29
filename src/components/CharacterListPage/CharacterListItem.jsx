@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import R2D2 from '../assets/r2-d2.png';
+import R2D2 from '../../assets/r2-d2.png';
 
 const CharacterListItem = ({ character }) => {
   const { name, birth_year, height, mass } = character;
