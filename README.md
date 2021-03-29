@@ -8,13 +8,17 @@ Objects returned from API responses do not have unique identifiers. This poses a
 
 ## Second Problem
 
-Another issue was incomplete data. Sub-collections were incomplete and replaced by a link to the resource. The first solution I thought of was to create another react component that when initially loaded, fetches and renders that link passed from its parent component, Instead I chose to use Promise.all, mapping each url to fetch and passing the array of promises to Promise.all and resolving them. Then I made use of the ES6 spread operator to replace the properties where links were provided with the newly fetched array data. This way, the user can see all the data, in one page.
+Another issue was incomplete data. Sub-collections were incomplete and replaced by a link to the resource. The reason I say it's incomplete is because ideally, this should be relational data (one to many). The first solution I thought of was to create another react component that when initially loaded, fetches and renders that link passed from its parent component, Instead I chose to use Promise.all, mapping each url to fetch and passing the array of promises to Promise.all and resolving them. Then I made use of the ES6 spread operator to replace the properties where links were provided with the newly fetched array data. This way, the user can see all the data, in one page.
 
-## Technical Choices
+## Technical Decisions
+
+### Architecture
+
+Typically React components are either presentational or container components, with redux, state is global and allows access to values in any component. The main goal was to produce a list. The list data is the essence of the app, not list data = no app. So its placed in the App component and data flows down into child components.
 
 ### State Management
 
-In regards to state management, It would have been simpler to just use local state, Instead I chose to use [Redux](https://redux.js.org/) and [Redux Tool Kit](https://redux-toolkit.js.org/) for state management, to demonstrate my knowledge in global state management and because Thunks written with [Redux Tool Kit](https://redux-toolkit.js.org/) provide action types for the status of a promise, here I am able to change state depending on the status of the promise ie. If the promise is pending I can set the state to Loading = true. [See an Example Here](https://redux-toolkit.js.org/api/createAsyncThunk#examples). Redux toolkit is deemed the standward way to write redux logic and addresses complaints in regards to how we used to write redux logic.
+In regards to state management, It would have been much simpler to just use local state, Instead I chose to use [Redux](https://redux.js.org/) and [Redux Tool Kit](https://redux-toolkit.js.org/) for state management, to demonstrate my knowledge in global state management and because Thunks written with [Redux Tool Kit](https://redux-toolkit.js.org/) provide action types for the status of a promise, here I am able to change state depending on the status of the promise ie. If the promise is pending I can set the state to Loading = true. [See an Example Here](https://redux-toolkit.js.org/api/createAsyncThunk#examples). Redux toolkit is deemed the standward way to write redux logic and addresses complaints in regards to how we used to write redux logic.
 
 ##### Tears of Redux
 
@@ -30,7 +34,26 @@ Usually when fetching from a paginated API, parameters are passed to get a speci
 
 ### Styling
 
-TailwindCSS is a utility first CSS framework. If you you are familiar with your css properties, then you can use TailwindCSS just fine. It makes prototyping and getting an MVP looking decent in a short amount of time. This was a personal choice as I enjoy the use of tailwind and its css classes. One thing I would have done in regards to Tailwind styling is to use the @apply directive to clean up the components.
+TailwindCSS is a utility first CSS framework. If you you are familiar with your CSS properties, then you can use TailwindCSS just fine. It makes prototyping and getting an MVP looking polished in a short amount of time. This was a personal choice as I enjoy the use of tailwind and its CSS utility classes. One thing I would have done in regards to Tailwind styling is to use the @apply directive to clean up the components.
+
+## Reflections / Looking back
+
+Looking back, I was focused on getting this project done as fast as I could, but sometimes life gets in the way and my time is limited. With this in mind, I read the documentation for the api, and was searching for a parameter for pagination in the docs. So i went ahead and used the next and prev properties of the response to pagination, because hey, its right there so why not use it. Ideally I should have used the url parameter instead with the fetch call. 
+
+## Testing
+
+Incorporating testing would have been great. Testing provides confidence in your code and reduces techincal debt, if more time was allowed I would have used Jest, Enzyme or RTL.
+
+### Features
+
+#### Features that I would of done 
+- Incorporate list filtering / sorting by property type.
+- On the character page, you can go to the next character, either back or forward.
+- Loader on page change (we are fetching data again so user should have some indication that its loading)
+- Tool tips for other properties ex. (show more planet details on hover)
+- More icons!
+- Error feedback for user (show an error message if API cannot fetch) _Attempting to fetch /person/17_
+
 
 ## Technologies used
 
