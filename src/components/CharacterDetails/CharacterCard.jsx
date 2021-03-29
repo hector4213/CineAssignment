@@ -82,7 +82,10 @@ const CharacterCard = ({ char }) => {
             <span className="font-normal">None</span>
           ) : (
             starships.map((ship) => (
-              <span className="font-normal p-1 md:text-xl">{`${ship.name}, `}</span>
+              <span
+                key={getIDFromUrl(ship.url)}
+                className="font-normal p-1 md:text-xl"
+              >{`${ship.name}, `}</span>
             ))
           )}
         </div>
@@ -92,7 +95,10 @@ const CharacterCard = ({ char }) => {
             <span className="font-normal p-1 md:text-xl">None</span>
           ) : (
             vehicles.map((veh) => (
-              <span className="font-normal p-1 md:text-xl">{`${veh.name}, `}</span>
+              <span
+                key={getIDFromUrl(veh.url)}
+                className="font-normal p-1 md:text-xl"
+              >{`${veh.name}, `}</span>
             ))
           )}
         </div>

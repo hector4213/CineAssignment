@@ -1,3 +1,5 @@
+/* eslint react/forbid-prop-types: 0 */
+/* eslint react/require-default-props: 0 */
 import PropTypes from 'prop-types';
 import CharacterList from './CharacterListPage/CharacterList';
 import ListButtons from './CharacterListPage/ListButtons';
@@ -15,8 +17,8 @@ const CharacterListPage = ({ charData, nextPage, prevPage }) => {
 
 CharacterListPage.propTypes = {
   charData: PropTypes.instanceOf(Array).isRequired,
-  nextPage: PropTypes.string.isRequired,
-  prevPage: PropTypes.string.isRequired,
+  nextPage: PropTypes.string,
+  prevPage: PropTypes.string,
 };
 
 export default CharacterListPage;
