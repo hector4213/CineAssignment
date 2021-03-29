@@ -1,3 +1,5 @@
+/* eslint react/forbid-prop-types: 0 */
+/* eslint react/require-default-props: 0 */
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { getPageNum } from '../../helpers/helpers';
@@ -37,8 +39,8 @@ const ListButtons = ({ prevPage, nextPage }) => {
 };
 
 ListButtons.propTypes = {
-  nextPage: PropTypes.string.isRequired,
-  prevPage: PropTypes.string.isRequired,
+  nextPage: PropTypes.any,
+  prevPage: PropTypes.any,
 };
 
 export default ListButtons;
