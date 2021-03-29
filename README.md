@@ -2,6 +2,12 @@
 
 An assignment using the [SWAPI API](https://swapi.dev)
 
+## Screenshots
+
+Desktop View               |  Mobile View
+:-------------------------:|:-------------------------:
+![](/readme/desktop.gif)  |  ![](/readme/mobile.gif)
+
 ## First Problem
 
 Objects returned from API responses do not have unique identifiers. This poses a problem due to the fact that React requires an unique id as a key attribute when mapping components to assist in its re-rendering efficacy during its reconciliation phase. Also, without an unique ID it makes it quite difficult to fetch a single resource from a response of a collection. They way I solved this was identifying the unique identifier dwells in the key of "url" from the response of a resource (or resources if fetching a collection). I leveraged a regex helper function to extract the number as a key, It is also solved my issue of routing to individual characters. With this function and the help of React-Routers useParams hook, I am able to render a single character on its own individual page.
