@@ -1,7 +1,7 @@
 export const getIDFromUrl = (charURL) => {
-  const regex = /\/people\/(\d+)\//;
+  const regex = /(\d+)/;
   const test = charURL.match(regex);
-  return test[1];
+  return test[0];
 };
 export const getPageNum = (nextPage, prevPage) => {
   const regex = /(\d+)/;
