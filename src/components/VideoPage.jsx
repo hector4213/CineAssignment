@@ -7,7 +7,7 @@ const VideoPage = () => {
     history.push('/characters');
   };
   return (
-    <div className="min-w-screen min-h-screen p-4 bg-black relative">
+    <div className="min-w-screen min-h-screen p-4 bg-black relative flex justify-center items-center">
       <Video />
       <button
         onClick={goToApp}
